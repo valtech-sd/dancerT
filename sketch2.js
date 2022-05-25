@@ -23,6 +23,11 @@ function preload() {
 }
 
 function setup() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // mobile
+    canvas = createCanvas(windowWidth, windowHeight);
+  }
+
   canvas = createCanvas(800, 560);
   canvas.position((windowWidth - width) / 2, 100);
 
