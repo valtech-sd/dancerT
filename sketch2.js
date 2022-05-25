@@ -29,8 +29,6 @@ function setup() {
   }
 
   canvas = createCanvas(800, 560);
-  canvas = createCanvas(windowWidth, windowHeight);
-
   canvas.position((windowWidth - width) / 2, 100);
 
   video = createCapture(VIDEO);
