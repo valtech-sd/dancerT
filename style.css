@@ -18,6 +18,25 @@ canvas {
   }
 }
 
+.text {
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  font-size: 22px;
+
+  @media screen and (max-width: 600px) {
+    position: inherit;
+  }
+}
+
+.container {
+  height: 200px;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #defaultCanvas0 {
   margin: auto;
   margin-top: 100px;

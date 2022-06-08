@@ -30,7 +30,7 @@ function setup() {
     canvas = createCanvas(800, 560);
   }
 
-  canvas.position((windowWidth - width) / 2, 100);
+  canvas.position((windowWidth - width) / 2, 300);
 
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -44,8 +44,8 @@ function setup() {
 
 function modelReady() {
   console.log('pose net ready');
-  success = createP('Move around to play some music!');
-  success.class('success');
+  // success = createP('Move around to play some music!');
+  // success.class('success');
 }
 
 function draw() {
@@ -83,10 +83,10 @@ function drawSkeleton() {
     const rightAnkle = pose.keypoints[16];
 
     if (nose.score > 0.5) {
-      strokeWeight(10);
+      strokeWeight(5);
       strokeCap(ROUND);
-      stroke('#b48ead');
-      fill('#88c0d0');
+      stroke('black');
+      fill('rgb(52, 252, 164)');
 
       // head
       const faceRadius = dist(width - nose.position.x, nose.position.y, width - leftEar.position.x, leftEar.position.y);
@@ -121,21 +121,21 @@ function drawSkeleton() {
         rightHip.position.y
       );
 
-      // hips
-      ellipse(width - rightHip.position.x, rightHip.position.y, 30, 30);
-      ellipse(width - leftHip.position.x, leftHip.position.y, 30, 30);
-
       // top legs
       line(width - rightHip.position.x, rightHip.position.y, width - rightKnee.position.x, rightKnee.position.y);
       line(width - leftHip.position.x, leftHip.position.y, width - leftKnee.position.x, leftKnee.position.y);
 
-      // knees
-      ellipse(width - rightKnee.position.x, rightKnee.position.y, 30, 30);
-      ellipse(width - leftKnee.position.x, leftKnee.position.y, 30, 30);
-
       // bottom legs
       line(width - rightKnee.position.x, rightKnee.position.y, width - rightAnkle.position.x, rightAnkle.position.y);
       line(width - leftKnee.position.x, leftKnee.position.y, width - leftAnkle.position.x, leftAnkle.position.y);
+
+      // hips
+      ellipse(width - rightHip.position.x, rightHip.position.y, 30, 30);
+      ellipse(width - leftHip.position.x, leftHip.position.y, 30, 30);
+
+      // knees
+      ellipse(width - rightKnee.position.x, rightKnee.position.y, 30, 30);
+      ellipse(width - leftKnee.position.x, leftKnee.position.y, 30, 30);
 
       // ankles
       ellipse(width - leftAnkle.position.x, leftAnkle.position.y, 30, 30);
