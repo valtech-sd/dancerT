@@ -36,7 +36,7 @@ function setup() {
   video.size(width, height);
   video.hide();
 
-  poseNet = ml5.poseNet(video, modelReady);
+  poseNet = ml5.poseNet(video, 'single', modelReady);
   poseNet.on('pose', function (results) {
     poses = results;
   });
@@ -180,7 +180,7 @@ function musicPlayer() {
         }
       }
 
-      leftWrist;
+      // leftWrist;
       if (width - leftWrist.position.x < width - 600 && leftWrist.position.x < 800 && !guitarLoopOne.isPlaying()) {
         if (leftWrist.score > 0.5) {
           guitarLoopOne.play();
